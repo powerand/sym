@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users{% endblock %}
+
+{% block body %}
+<style>
+    .and-block {
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px dotted #ccc;
+        padding: 0 10px;
+    }
+    .or-block {
+        display: inline-block;
+        vertical-align: middle;
+        padding: 0 10px;
+    }
+</style>
+    
+<form method="post">
+    <textarea rows="10" cols="60" name="query">{{ query }}</textarea>
+    <p><input type="submit"></p>
+</form>
+<table id="users">
+    {% for user in users %}
+        <tr>
+            <td>{{ user['id'] }}</td>
+            <td>{{ user['email'] }}</td>
+            <td>{{ user['role'] }}</td>
+            <td>{{ user['reg_date'] }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
